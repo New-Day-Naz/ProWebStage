@@ -189,7 +189,7 @@ function setFrameValues(obj) {
         }
     );
     // Fit the values to the frame
-    textFit(document.getElementsByClassName('content-container'), {minFontSize:10, maxFontSize: 1000});
+    textFit(document.getElementsByClassName('content-container'), {minFontSize:10, maxFontSize: 90});
 }
 
 function setFrameValue(obj) {
@@ -225,7 +225,7 @@ function setFrameValue(obj) {
             break;
     }
     // Fit the values to the frame
-    textFit(document.getElementsByClassName('content-container'), {minFontSize:10, maxFontSize: 1000});
+    textFit(document.getElementsByClassName('content-container'), {minFontSize:10, maxFontSize: 90});
 }
 
 function displayStageLayout(uid) {
