@@ -7,7 +7,7 @@ var pass = "stage";
 
 // Settings
 var stageScreen = 1;
-var mustAuthenticate = true;
+var mustAuthenticate = false;
 var changeHost = true;
 
 // Application
