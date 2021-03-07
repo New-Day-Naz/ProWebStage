@@ -358,6 +358,26 @@ function getFrameStyle(frame) {
     return frameStyle;
 }
 
+function getFrameStyleForCurrentSlide(frame) {
+    // Get the frame dimentions
+    var ufrList = frame.ufr.replace(/[{}]/g, "").split(",");
+    // Create variable to hold the frame style
+    var frameStyle = 'bottom: '+(ufrList[1]*100)+'%;'
+        + 'width: 100%;'
+        + 'height: calc('+(ufrList[3]*100)+'% - 2px);';
+    frameStyle += 'font-size: '+frame.tSz+'px;';
+    var frameColor = frame.tCl.split(" ");
+    frameStyle += 'color: rgb('+getRGBValue(frameColor[0])+','+getRGBValue(frameColor[1])+','+getRGBValue(frameColor[2])+');';
+    if (frame.tAl == 0) {
+        frameStyle += 'text-align: left;';
+    } else if (frame.tAl == 1) {
+        frameStyle += 'text-align: right;';
+    } else if (frame.tAl == 2) {
+        frameStyle += 'text-align: center;';
+    }
+    return frameStyle;
+}
+
 function convertTimestamp(timestamp) {
     // Create date object based on the timestamp
     var date = new Date(timestamp * 1000);
