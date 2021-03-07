@@ -11,7 +11,7 @@ html, body {
 }
 
 body {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0);
     margin: 0px;
     font-family: 'Roboto', Arial, sans-serif;
     color: #e2e2e2;
@@ -23,7 +23,7 @@ body {
     left: 0px;
     width: 100%;
     height: 100%;
-    background-color: #000000;
+    background-color: rgba(0, 0, 0, 0);
     text-align: center;
     z-index: 1006;
 }
@@ -103,11 +103,11 @@ body {
 }
 
 .stage-frame.bordered {
-    border: 1px solid #808080;
+    border: 1px solid rgba(0, 0, 0, 0);
 }
 
 .stage-frame.bordered .title {
-    background-color: #808080;
+    background-color: rgba(0, 0, 0, 0);
     color: #000000;
     font-size: 14px;
     text-align: left;
@@ -117,7 +117,7 @@ body {
 .stage-frame .content-container {
     width: 100%;
     height: calc(100% - 16px);
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 .stage-frame .content-container span {
