@@ -9,6 +9,7 @@ var pass = "stage";
 var stageScreen = 1;
 var mustAuthenticate = false;
 var changeHost = true;
+var transitionTime = 600;
 
 // Application
 var authenticated = false;
@@ -174,8 +175,28 @@ function setFrameValues(obj) {
                     }
                     // If this frame is any other frame
                     else {
-                        // Set the frame value
-                        document.getElementById("txt."+value.acn).innerHTML = value.txt.replace(/[\r\n\x0B\x0C\u0085\u2028\u2029]+/g, "\n");
+                        if (value.acn == "cs") {
+                            if ($('.slideTwo').is(":hidden")) {
+                                $('.slideOne').hide();
+                                $('.slideOne').removeClass('content-container');
+
+                                $('.slideTwo').fadeIn(transitionTime);
+                                $('.slideTwo').addClass('content-container');
+
+                                document.getElementById("txt2."+value.acn).innerHTML = value.txt.replace(/[\r\n\x0B\x0C\u0085\u2028\u2029]+/g, "\n");
+                            } else {
+                                $('.slideTwo').hide();
+                                $('.slideTwo').removeClass('content-container');
+
+                                $('.slideOne').fadeIn(transitionTime);
+                                $('.slideOne').addClass('content-container');
+
+                                document.getElementById("txt."+value.acn).innerHTML = value.txt.replace(/[\r\n\x0B\x0C\u0085\u2028\u2029]+/g, "\n");
+                            }
+                        } else {
+                            // Set the frame value
+                            document.getElementById("txt."+value.acn).innerHTML = value.txt.replace(/[\r\n\x0B\x0C\u0085\u2028\u2029]+/g, "\n");
+                        }
                     }
                 }
             } else {
