@@ -254,11 +254,16 @@ function displayStageLayout(uid) {
                             // Set date format
                             dateFormat = frame.cfD;
                         }
+
                         // Add the frame to stage data
-                        stageData += '<div style="'+getFrameStyle(frame)+'" id="'+getFrameType(frame.typ, frame.uid)+'" class="stage-frame '+bordered+'">'
-				            + '<div id="nme.'+getFrameType(frame.typ, frame.uid)+'" class="title">'+getFrameName(frame.nme, frame.typ)+'</div>'
-            				+ '<div class="content-container"><div id="txt.'+getFrameType(frame.typ, frame.uid)+'" class="content"></div></div>'
-	                        + '</div>';
+
+                        // MOD: skip all frames except for current slide
+                        if (frame.typ == 1) {
+                            stageData += '<div style="'+getFrameStyleForCurrentSlide(frame)+'" id="'+getFrameType(frame.typ, frame.uid)+'" class="stage-frame '+bordered+'">'
+                                + '<div class="slideOne"><div id="txt.'+getFrameType(frame.typ, frame.uid)+'" class="content"></div></div>'
+                                + '<div class="slideTwo"><div id="txt2.'+getFrameType(frame.typ, frame.uid)+'" class="content"></div></div>'
+                                + '</div>';
+                        }
                     }
                 );
 
@@ -267,6 +272,7 @@ function displayStageLayout(uid) {
     );
     // Add the stage data to the main area
     document.getElementById("main-area").innerHTML = stageData;
+
     // Get the frame values
     getFrameValues();
     // Fade out loading screen
